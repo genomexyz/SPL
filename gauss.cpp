@@ -78,7 +78,7 @@ int main ()
 		if (i == BATASAN_JUMLAH_DATA) //too lazy to using vector or whatever
 			break;
 	}
-	for (int j = 0; j < 3; j++) {
+	for (int j = 0; j < (BATASAN_JUMLAH_DATA - 1); j++) {
 		operasi(j, matrix);
 		showmat(matrix);
 	}
