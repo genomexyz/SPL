@@ -1,2 +1,2 @@
 # SPL
-scripts for numerical methods
+scripts for systom of linear equation
