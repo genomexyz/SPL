@@ -1,0 +1,12 @@
+set hidden3d
+set dgrid3d 50,50 qnorm 2
+set ticslevel 0
+#splot 'prediksi.dat' u 1:2:3 w l ls 1
+splot 'prediksi.dat' with lines
+
+#set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue
+#set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 5 ps 1.5   # --- red
+#plot 'prediksi.dat' u 2:3 i 0 with lines ls 1, \
+#    'prediksi.dat' u 2:3 i 1 with lines ls 2
+#plot for [i=1:61] 'prediksi.dat' u 2:3 with lines
+
