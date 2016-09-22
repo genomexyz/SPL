@@ -18,7 +18,7 @@ integer::looping
 !declare all constant we need
 	K = 2.3 / 10**(5) !K = 2.3 x 10^5 meter^2 / second
 	jarak_waktu = 1 !range time in our grid is 1 second
-	jarak_x = 1 !our metal bar is 10 meters but we divide it into 10 segments
+	jarak_x = 1 !our grid for x axis
 
 	do i = 2, 61 !raw_data(1,j) is for initial condition
 		raw_data(i,1) = 0
