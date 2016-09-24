@@ -1,0 +1,23 @@
+#plot for [i=1:61] 'prediksi.dat' u 2:3 with lines; 
+#do for [i=0:60] { plot 'prediksi.dat' title sprintf('t=%d', i); pause 0.5 }
+
+set terminal gif animate delay 3
+set output 'contoh.gif'
+set hidden3d
+set dgrid3d splines
+#set dgrid3d 30,30 gauss 1
+set ticslevel 0
+stats 'prediksi.dat' nooutput
+#set xrange [0:10]
+#set yrange [0:1]
+set zrange [0:3]
+set zlabel "suhu"
+set ylabel "sumbu y"
+set xlabel "sumbu x"
+#unset autoscale z
+
+do for [s=1:301] {
+    splot 'prediksi2d.dat' index (s-1) u 2:3:4 title sprintf('s=%d', s-1) with lines
+}
+
+#splot 'prediksi2d.dat' u 2:3:4 with lines i 0
