@@ -54,6 +54,7 @@ integer::looping,i,j,l,tot_waktu,tot_x,tot_y
 	!	,raw_data(i,8),raw_data(i,9),raw_data(i,10),raw_data(i,11)
 	!end do
 	
+	!output session
 	write(11,*)'#format'
 	write(11,*)'#waktu x y suhu'
 	do i = 1, tot_waktu
