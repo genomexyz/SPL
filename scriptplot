@@ -3,7 +3,7 @@
 #description	:This script will make a header for a bash script.
 #author		 	:@genomexyz
 #date			:20160927
-#version		:0.2.1
+#version		:0.2.2
 #usage			:./scriptplot
 #notes			:be sure to check permission of script before use
 #bash_version	:4.3.46(1)-release
@@ -38,6 +38,8 @@ bujbatas_atas=${command[5]}
 
 #real action
 echo "progress"
+#clear output file
+echo -n "" > temperature.csv
 while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY IMPORTANT!!!
 	while [ $bujbatas_bawah -le "${command[5]}" ]; do
 #play with string
