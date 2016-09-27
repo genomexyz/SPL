@@ -1,0 +1,52 @@
+#!/bin/bash 
+
+count=0
+IFS=' ='
+
+#for i in $sc; do
+#	hasil=$i
+#	#counter=$((counter+1))
+#done
+#echo $hasil >> temperature
+
+#read input
+echo "masukkan nama file grib2..."
+read namafile
+echo "masukkan kode inv grib2 dan nilai lintang bawah atas dan bujur bawah atas berurutan..."
+read urut
+
+for i in $urut; do
+	count=$((count+1))
+	command[count]=$i
+done
+
+
+#ASSIGN VARIABLE WITH ARRAY MUST BE THIS WAY FOR INTEGER
+linbatas_bawah=${command[2]}
+linbatas_atas=${command[3]}
+bujbatas_bawah=${command[4]}
+bujbatas_atas=${command[5]}
+
+#real action
+echo "progress"
+while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY IMPORTANT!!!
+	while [ $bujbatas_bawah -le "${command[5]}" ]; do
+#play with string
+#comm="wgrib2 example.grib2 -lon 45 5 -d 3"
+		sc=`wgrib2 $namafile -lon $bujbatas_bawah $linbatas_bawah -d ${command[1]}`
+		for i in $sc; do
+			pembacaan=$i
+		done
+#extract val to file
+		echo $pembacaan >> temperatur
+#calculate progress
+		progress=$(((command[5] - command[4]) * (linbatas_bawah - command[2]) + (bujbatas_bawah - command[4])))
+		pembagi=$(((command[3] - command[2]) * (command[5] - command[4]) + (command[5] - command[4])))
+		echo -en "\r$((progress * 100 / pembagi))%"
+		let bujbatas_bawah=bujbatas_bawah+1
+	done
+	let bujbatas_bawah=${command[4]}
+	let linbatas_bawah=linbatas_bawah+1
+done
+echo ""
+
