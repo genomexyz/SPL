@@ -3,7 +3,7 @@
 #description	:This script will make a header for a bash script.
 #author		 	:@genomexyz
 #date			:20160927
-#version		:0.2
+#version		:0.2.1
 #usage			:./scriptplot
 #notes			:be sure to check permission of script before use
 #bash_version	:4.3.46(1)-release
@@ -56,7 +56,7 @@ while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY
 		echo -en "\r$((progress * 100 / pembagi))%"
 		let bujbatas_bawah=bujbatas_bawah+1
 	done
-	echo "" >> temperatur
+	echo "" >> temperature.csv
 	let bujbatas_bawah=${command[4]}
 	let linbatas_bawah=linbatas_bawah+1
 done
