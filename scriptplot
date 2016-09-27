@@ -36,17 +36,19 @@ linbatas_atas=${command[3]}
 bujbatas_bawah=${command[4]}
 bujbatas_atas=${command[5]}
 
-#real action
+
 echo "progress"
 #clear output file
 echo -n "" > temperature.csv
+
+#REAL ACTION OF EXTRACTION
 while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY IMPORTANT!!!
 	while [ $bujbatas_bawah -le "${command[5]}" ]; do
 #play with string
 #comm="wgrib2 example.grib2 -lon 45 5 -d 3"
 		sc=`wgrib2 $namafile -lon $bujbatas_bawah $linbatas_bawah -d ${command[1]}`
 		#echo $sc >> temperatur
-		for i in $sc; do
+		for i in $sc; do #split output string to get val
 			pembacaan=$i
 		done
 #extract val to file
@@ -58,7 +60,7 @@ while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY
 		echo -en "\r$((progress * 100 / pembagi))%"
 		let bujbatas_bawah=bujbatas_bawah+1
 	done
-	echo "" >> temperature.csv
+	echo "" >> temperature.csv #next row
 	let bujbatas_bawah=${command[4]}
 	let linbatas_bawah=linbatas_bawah+1
 done
