@@ -1,6 +1,6 @@
 #!/bin/bash 
 #title			:scriptplot
-#description	:This script will make a header for a bash script.
+#description		:to extract data from grib file
 #author		 	:@genomexyz
 #date			:20160927
 #version		:0.1
