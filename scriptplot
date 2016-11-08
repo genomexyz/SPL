@@ -1,9 +1,9 @@
 #!/bin/bash 
 #title			:scriptplot
-#description	:This script will make a header for a bash script.
+#description		:This script will make a header for a bash script.
 #author		 	:@genomexyz
 #date			:20160927
-#version		:0.2.2
+#version		:1.0
 #usage			:./scriptplot
 #notes			:be sure to check permission of script before use
 #bash_version	:4.3.46(1)-release
@@ -21,6 +21,8 @@ IFS=' ='
 #read input
 echo "masukkan nama file grib2..."
 read namafile
+echo "masukkan nama variabel yang di inginkan..."
+read namavar
 echo "masukkan kode inv grib2 dan nilai lintang bawah atas dan bujur bawah atas berurutan..."
 read urut
 
@@ -39,7 +41,7 @@ bujbatas_atas=${command[5]}
 
 echo "progress"
 #clear output file
-echo -n "" > temperature.csv
+echo -n "" > $namavar.csv
 
 #REAL ACTION OF EXTRACTION
 while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY IMPORTANT!!!
@@ -53,14 +55,14 @@ while [ $linbatas_bawah -le "${command[3]}" ]; do #SPACE IN WHILE SYNTAX IS VERY
 		done
 #extract val to file
 		#echo $pembacaan >> temperatur
-		echo -n "$pembacaan," >> temperature.csv
+		echo -n "$pembacaan," >> $namavar.csv
 #calculate progress
 		progress=$(((command[5] - command[4]) * (linbatas_bawah - command[2]) + (bujbatas_bawah - command[4])))
 		pembagi=$(((command[3] - command[2]) * (command[5] - command[4]) + (command[5] - command[4])))
 		echo -en "\r$((progress * 100 / pembagi))%"
 		let bujbatas_bawah=bujbatas_bawah+1
 	done
-	echo "" >> temperature.csv #next row
+	echo "" >> $namavar.csv #next row
 	let bujbatas_bawah=${command[4]}
 	let linbatas_bawah=linbatas_bawah+1
 done
