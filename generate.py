@@ -8,6 +8,8 @@ inputxakhir = 142
 inputyakhir = 6
 inputxawal = 95
 inputyawal = -11
+#end
+
 batasx = inputxakhir+1
 batasy = inputyakhir+1
 
