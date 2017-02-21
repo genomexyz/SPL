@@ -11,7 +11,6 @@ k = 1.0			#constant of spring N/m
 m = 1.0			#mass of block
 v = 0.0			#speed of block is m/s
 x = 1.0			#position of block m
-A = 9.0			#amplitudo of spring m
 t = 0.0			#init time
 loop = 10		#how many loop we want to compute
 
