@@ -27,7 +27,7 @@ energy = np.zeros((loop + 1), dtype = float)
 kec = np.zeros((loop + 1), dtype = float)
 posx = np.zeros((loop + 1), dtype = float)
 
-energy[0] = 0.5 * k * x + 0.5 * m * v**2.0	#energy at t=0, it mean when block at rest
+energy[0] = 0.5 * k * x**2.0 + 0.5 * m * v**2.0	#energy at t=0, it mean when block at rest
 kec[0] = v									#speed at t=0 is the intial condition
 posx[0] = x									#position at t=0 is the initial condition
 
