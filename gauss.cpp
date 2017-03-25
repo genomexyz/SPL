@@ -6,8 +6,8 @@
 #include <iostream>
 #include <fstream>
 
-#define BATASAN_JUMLAH_DATA 4
-#define BATAS_KOLOM 5
+#define BATASAN_JUMLAH_DATA 3
+#define BATAS_KOLOM 4
 
 using namespace std;
 
@@ -17,8 +17,8 @@ void showmat (float data [BATASAN_JUMLAH_DATA][BATAS_KOLOM])
 	int k;
 
 	cout << "keadaan matrix saat ini" << endl;
-	for (j = 0; j < 4; j++) {
-		for (k = 0; k < 5; k++) {
+	for (j = 0; j < BATASAN_JUMLAH_DATA; j++) {
+		for (k = 0; k < BATAS_KOLOM; k++) {
 			cout << data[j][k] << " ";
 		}
 		cout << endl;
@@ -70,7 +70,7 @@ int main ()
 	float matrix [BATASAN_JUMLAH_DATA][BATAS_KOLOM];
 	float finishing [BATASAN_JUMLAH_DATA] = {0};
 
-	ifstream input("matrix");
+	ifstream input("matriks");
 
 	i = 0;
 	while (input >> matrix[i][0] >> matrix[i][1] >> matrix[i][2] >> matrix[i][3] >> matrix[i][4]) {
